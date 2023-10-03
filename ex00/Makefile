@@ -1,10 +1,10 @@
 NAME = btc
 
-HEADERS_LIST = 
+HEADERS_LIST = BitcoinExchange.hpp
 HEADERS_DIRECTORY = ./includes/
 HEADERS = $(addprefix $(HEADERS_DIRECTORY), $(HEADERS_LIST))
 
-SOURCES_LIST =  main.cpp
+SOURCES_LIST =  main.cpp BitcoinExchange.cpp
 SOURCES_DIRECTORY = ./sources/
 SOURCES = $(addprefix $(SOURCES_DIRECTORY), $(SOURCES_LIST))
 

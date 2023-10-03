@@ -3,7 +3,6 @@
 
 #include <map>
 #include <iostream>
-
 class BitcoinExchange {
 	public:
 		// Constructor
@@ -20,7 +19,7 @@ class BitcoinExchange {
 		// Methods
 		void	addData( std::string& filename );
 		void	readFile( std::string& filename );
-		int		checkInput( std::string& input );
+		void	checkInput( std::string& input );
 
 	private:
 		std::map<std::string, double> _data;

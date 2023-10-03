@@ -1,5 +1,4 @@
-#include "BitcoinExchange.hpp"
-#include <vector>
+#include "../includes/BitcoinExchange.hpp"
 
 int	main( int argc, char **argv ) {
 	if ( argc != 2 ) {
@@ -7,5 +6,11 @@ int	main( int argc, char **argv ) {
 		return ( 1 );
 	}
 
+	std::string	filename = "data.csv";
+	BitcoinExchange exchange( filename );
 
+	filename = argv[1];
+	exchange.readFile( filename );
+
+	return ( 0 );
 }
