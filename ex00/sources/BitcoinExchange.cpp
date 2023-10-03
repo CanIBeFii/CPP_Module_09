@@ -59,7 +59,6 @@ void	BitcoinExchange::addData( std::string& filename ) {
 		std::string date = line.substr( 0, line.find( ',' ) );
 		std::string price = line.substr( line.find( ',') + 1 );
 
-		std::cout << date << " => " << price << std::endl;
 		_data.insert( std::pair<std::string, double>( date, std::atof( price.c_str() ) ) );
 	}
 	file.close();
@@ -81,7 +80,8 @@ void	BitcoinExchange::readFile( std::string& filename ) {
 			std::string date = line.substr( 0, line.find( '|' ) - 1 );
 			double numBtc = std::atof( line.substr( line.find( '|' ) + 1 ).c_str() );
 			std::map<std::string, double>::iterator iter = _data.upper_bound( date );
-			--iter;
+			if ( iter != _data.begin() )
+				--iter;
 			std::cout << iter->first << " => " << iter->second << " => " << numBtc * iter->second << std::endl;
 		} catch ( std::exception& e ) {
 			std::cout << e.what() << std::endl;
