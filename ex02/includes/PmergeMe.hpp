@@ -7,6 +7,7 @@
 #include <list>
 #include <vector>
 #include <stdexcept>
+#include <iterator>
 
 class PmergeMe {
 	public:
@@ -24,7 +25,16 @@ class PmergeMe {
 		void		addVector( int value );
 		void		addList( int value );
 
-		void		mergeInsertSort( void );
+		typedef std::vector<int>::iterator vecIter;
+		typedef std::list<int>::iterator listIter;
+
+		void		sort( int argc );
+
+		// Vector
+		void		mergeInserSortVector( vecIter left, vecIter right );
+		void		mergeInsertSortVector( int left, int right, int size );
+		void		insertSortVector( int left, int right );
+		void		mergeVector( int left, int middle, int right );
 
 
 	private:
@@ -34,6 +44,9 @@ class PmergeMe {
 		clock_t				_listTime;	
 };
 
-
+template <typename T>
+void	print( T& num ) {
+	std::cout << num << " ";
+}
 
 #endif

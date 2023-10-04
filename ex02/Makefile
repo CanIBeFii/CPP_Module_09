@@ -1,10 +1,10 @@
 NAME = PmergeMe
 
-HEADERS_LIST = BitcoinExchange.hpp
+HEADERS_LIST = PmergeMe.hpp
 HEADERS_DIRECTORY = ./includes/
 HEADERS = $(addprefix $(HEADERS_DIRECTORY), $(HEADERS_LIST))
 
-SOURCES_LIST =  main.cpp BitcoinExchange.cpp
+SOURCES_LIST =  main.cpp PmergeMe.cpp
 SOURCES_DIRECTORY = ./sources/
 SOURCES = $(addprefix $(SOURCES_DIRECTORY), $(SOURCES_LIST))
 
