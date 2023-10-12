@@ -4,9 +4,8 @@
 #include <iostream>
 #include <algorithm>
 #include <ctime>
+#include <deque>
 #include <list>
-#include <vector>
-#include <stdexcept>
 #include <iterator>
 
 class PmergeMe {
@@ -22,26 +21,31 @@ class PmergeMe {
 		PmergeMe&	operator=( const PmergeMe& copy );
 
 		// Methods
-		void		addVector( int value );
-		void		addList( int value );
+		void		addToList( int value );
+		void		addToDeque( int value );
 
-		typedef std::vector<int>::iterator vecIter;
 		typedef std::list<int>::iterator listIter;
+		typedef std::deque<int>::iterator dequeIter;
 
-		void		sort( int argc );
+		void		sort( void );
 
 		// Vector
-		void		mergeInserSortVector( vecIter left, vecIter right );
-		void		mergeInsertSortVector( int left, int right, int size );
-		void		insertSortVector( int left, int right );
-		void		mergeVector( int left, int middle, int right );
+		void		mergeInsertSortList( void );
+		void		insertList( void );
 
+		void		mergeInsertSortDeque( void );
+		void		insertDeque( void );
 
 	private:
-		std::vector<int>	_vector;
-		std::list<int>		_list;
-		clock_t				_vectorTime;
-		clock_t				_listTime;	
+		std::list<int>						_list;
+		std::list<int>						_sortedList;
+		std::list< std::pair<int, int> >	_listPair;
+
+		std::deque<int>						_deque;
+		std::deque<int>						_sortedDeque;
+
+		clock_t								_listTime;
+		clock_t								_dequeTime;	
 };
 
 template <typename T>

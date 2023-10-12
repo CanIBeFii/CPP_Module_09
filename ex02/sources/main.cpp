@@ -6,16 +6,16 @@ int	main( int argc, char **argv ) {
 		return ( 1 );
 	}
 
-
 	try {
 		PmergeMe	pmergeMe;
+
 		for ( int i = 1; i < argc; i++ ) {
-			pmergeMe.addVector( std::atoi( argv[i] ) );
-			pmergeMe.addList( std::atoi( argv[i] ) );
+			pmergeMe.addToDeque( std::atoi( argv[i] ) );
+			pmergeMe.addToList( std::atoi( argv[i] ) );
 			std::cout << "Added: " << argv[i] << std::endl;
 		}
 
-		pmergeMe.sort( argc );
+		pmergeMe.sort();
 
 	} catch ( std::exception& e ) {
 		std::cout << e.what() << std::endl;
