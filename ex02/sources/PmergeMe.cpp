@@ -1,5 +1,6 @@
 #include "../includes/PmergeMe.hpp"
 #include <algorithm>
+#include <ctime>
 #include <iterator>
 
 // Constructor
@@ -37,20 +38,32 @@ void	PmergeMe::addToDeque( int value ) {
 }
 
 void	PmergeMe::sort( void ) {
-	std::cout << "Before: " << std::for_each(_list.begin(), --_list.end(), print<int>) << std::endl;
+
+	std::cout << "Before: ";
+	for ( listIter iter = _list.begin() ; iter != _list.end() ; ++iter )
+		std::cout << *iter << " ";
+	std::cout << std::endl;
 
 	// list 
 	_listTime = clock();
 	mergeInsertSortList();
 	_listTime = clock() - _listTime;
 
-	// // List
+	// Deque
 	_dequeTime = clock();
-	// _list.sort();
+	mergeInsertSortDeque();
 	_dequeTime = clock() - _dequeTime;
 
-	std::cout << "After: " << std::for_each(_list.begin(), --_list.end(), print<int>) << std::endl;
+	std::cout << "After: ";
+	for ( listIter iter = _sortedList.begin() ; iter != _sortedList.end() ; ++iter )
+		std::cout << *iter << " ";
+	std::cout << std::endl;
 
+	std::cout << "Time to process a range of " << _list.size() << " elements with std::list : ";
+	std::cout << (double)( (double)_listTime / CLOCKS_PER_SEC ) * 1000 << " miliseconds " << std::endl;
+
+	std::cout << "Time to process a range of " << _deque.size() << " elements with std::deque : ";
+	std::cout << (double)( (double)_dequeTime / CLOCKS_PER_SEC ) * 1000 << " miliseconds " << std::endl;
 }
 
 void	PmergeMe::mergeInsertSortList( void ) {

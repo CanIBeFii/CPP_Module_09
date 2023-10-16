@@ -12,7 +12,6 @@ int	main( int argc, char **argv ) {
 		for ( int i = 1; i < argc; i++ ) {
 			pmergeMe.addToDeque( std::atoi( argv[i] ) );
 			pmergeMe.addToList( std::atoi( argv[i] ) );
-			std::cout << "Added: " << argv[i] << std::endl;
 		}
 
 		pmergeMe.sort();
