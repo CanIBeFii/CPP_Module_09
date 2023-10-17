@@ -112,7 +112,7 @@ void	BitcoinExchange::checkInput( std::string& input ) {
 		throw std::runtime_error( "Error: not a positive number." );
 	}
 
-	if ( price > 100 ) {
+	if ( price > 1000 ) {
 		throw std::runtime_error( "Error: too large a number." );
 	}
 }
