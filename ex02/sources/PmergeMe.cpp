@@ -1,5 +1,6 @@
 #include "../includes/PmergeMe.hpp"
 #include <algorithm>
+#include <atomic>
 #include <ctime>
 #include <iterator>
 
@@ -110,7 +111,6 @@ void	PmergeMe::insertList( void ) {
 	
 		_sortedList.insert( iter2, iter->first );
 
-		iter2 = _sortedList.begin();
 		while ( iter2 != _sortedList.end() && *iter2 < iter->second )
 			++iter2;
 
